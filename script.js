@@ -1,12 +1,9 @@
 // Assignment Code
-let generateBtn = document.querySelector("#generate");
-
+const generateBtn = document.querySelector("#generate");
+const passwordText = document.querySelector("#password");
 // Write password to the #password input
 function writePassword() {
-    let password = generatePassword();
-    let passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
+    passwordText.value = generatePassword();
 
 }
 
@@ -34,10 +31,12 @@ function generatePassword() {
     if (confirm("Do you want to include special characters?")) {
         passwordCharacters = passwordCharacters.concat(specialCharacters);
     }
-    if (upperCase === false && lowerCase === false && specialCharacters === false && numbers === false) {
-        alert("You must choose at least one type of character");
+    if (passwordCharacters.length === 0) {
+        alert("You mush choose at least one type of character");
 
+        generatePassword()
     }
+
 
     let password = "";
 
